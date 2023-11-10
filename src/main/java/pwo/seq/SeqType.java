@@ -1,16 +1,16 @@
 package pwo.seq;
 
 import java.util.stream.Stream;
+import pwo.utils.SequenceGenerator; // Dodany import
 
 public enum SeqType {
 
-    FIB, //Fibonacci
-    LUC, //Lucas
-    TRI; //Tribonacci
+    FIB, // Fibonacci
+    LUC, // Lucas
+    TRI; // Tribonacci
 
     private static final int B = 0, L = 3;
-    private static final String FIX_SEQTYPE
-            = "Problem in " + SeqType.class.getName();
+    private static final String FIX_SEQTYPE = "Problem in " + SeqType.class.getName();
 
     static {
         Stream.of(SeqType.values()).forEach(t -> {
@@ -22,16 +22,13 @@ public enum SeqType {
 
     public static SeqType fromString(String type) {
         try {
-            return valueOf(type.trim()
-                    .substring(B, L).toUpperCase());
-        } catch (NullPointerException
-                | StringIndexOutOfBoundsException
-                | IllegalArgumentException ex) {
+            return valueOf(type.trim().substring(B, L).toUpperCase());
+        } catch (NullPointerException | StringIndexOutOfBoundsException | IllegalArgumentException ex) {
             return null;
         }
     }
 
-    public Generator getGenerator() {
+    public SequenceGenerator getGenerator() {
         switch (this) {
             case FIB:
                 return new FibonacciGenerator();

@@ -29,4 +29,7 @@ abstract class Generator implements SequenceGenerator {
         }
         return current;
     }
+
+    @Override
+    public abstract BigDecimal previousTerm();
 }

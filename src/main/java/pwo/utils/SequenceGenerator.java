@@ -8,5 +8,7 @@ public interface SequenceGenerator {
 
     BigDecimal nextTerm();
 
+    BigDecimal previousTerm();
+
     BigDecimal getTerm(int i);
 }
